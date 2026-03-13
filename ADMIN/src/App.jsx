@@ -5,7 +5,10 @@ import { PageProvider, useSession } from './page/admin'
 import { Outlet, Route, Router, Routes, useNavigate, Navigate } from 'react-router-dom'
 import { supabase } from './data/supabase'
 import { MainPage } from './page/mainPage'
-
+import { Dashboard } from './page/panel-ui/Dashboard'
+import { News } from './page/panel-ui/News'
+import { Announcement } from './page/panel-ui/Announcement'
+import { Events } from './page/panel-ui/Event'
 
 function Form() {
   const [formType, setFormType] = useState(true)
@@ -48,10 +51,8 @@ function App() {
     if (!session) {
       return
     } else {
-      navigate('/admin/dashboard')
+      navigate('/admin/panel-ui')
     }
-
-
 
   }, [session])
 
@@ -61,7 +62,13 @@ function App() {
           <Route path="/" element={<MainLayout />} >
             <Route index element={<Navigate to="/admin" replace />} />
             <Route path='admin' element={<Form />} />
-            <Route path='admin/dashboard' element={<MainPage />} />
+
+            <Route path='admin/panel-ui/' element={<MainPage />}>
+                <Route path='dashboard' element={<Dashboard />}/>
+                <Route path='news' element={<News />}/>
+                <Route path='events' element={<Events />}/>
+                <Route path='announcement' element={<Announcement />}/>
+            </Route>
           </Route>
         </Routes>
     </>
