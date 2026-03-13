@@ -1,25 +1,27 @@
 import { NavigationPages } from '../NavigationPage'
-import { PeopleContainer } from '../../components/utils/Container'
+import { LinedLabel, PeopleContainer } from '../../components/utils/Container'
 
 export function AdministrationPage() {
   const administrationLead = {
-    name: 'Full Name',
-    role: 'School Head',
+    name: 'Dr. Leoniza D. Varias',
+    role: 'Principal III',
+    image : "ken"
   }
 
   const administrationMembers = [
-    { name: 'Full Name', role: 'Assistant Principal' },
-    { name: 'Full Name', role: 'Head Teacher' },
-    { name: 'Full Name', role: 'Registrar' },
-    { name: 'Full Name', role: 'Guidance Coordinator' },
-    { name: 'Full Name', role: 'Property Custodian' },
-    { name: 'Full Name', role: 'School Nurse' },
+    { name: '', role: 'Assistant Principal', image : "ken" },
+    { name: '', role: 'Head Teacher' , image : "ken"},
+    { name: '', role: 'Registrar', image : "ken" },
+    { name: '', role: 'Guidance Coordinator', image : "ken" },
+    { name: '', role: 'Property Custodian', image : "ken" },
+    { name: '', role: 'School Nurse', image : "ken" },
   ]
 
   return (
     <NavigationPages title="Administration">
+      <LinedLabel className='enlarged' text="SCHOOL ORGANIZATION"/>
       <PeopleContainer
-        title="Administration Team"
+        title="SCHOOL ORGANIZATION"
         lead={administrationLead}
         members={administrationMembers}
       />

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import { PageContainer } from '../components/utils/Container'
 
-export function NavigationPages({ title, subtitle, children }) {
+export function NavigationPages({ title, subtitle, children, className = "" }) {
     return (
         <>
-            <main className="navigation-page">
+            <main className={`navigation-page ${className}`}>
                 <header className="navigation-page-header">
                     <img className="navigation-page-bg" src="/src/assets/images/bg_1.jpg" alt="" aria-hidden="true" />
                     {title && <h1 className="navigation-page-title">{title}</h1>}

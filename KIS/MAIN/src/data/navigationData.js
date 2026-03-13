@@ -11,7 +11,7 @@ import { UpcomingEventsPage } from "../pages/news/UpcomingEvents";
 import { AnnouncementsPage } from "../pages/news/Announcements";
 import { PhotoGalleryPage } from "../pages/news/PhotoGallery";
 import { LifePage } from "../pages/life/Life";
-import { ProgramsOfferedPage } from "../pages/life/ProgramsOffered";
+import { StudentOrgPage } from "../pages/life/StudentOrg";
 import { JhsPage } from "../pages/life/Jhs";
 import { ShsPage } from "../pages/life/Shs";
 import { FacilitiesPage } from "../pages/life/Facilities";
@@ -42,14 +42,14 @@ export const navigationItems = [
     },
     {
         NEWS_EVENTS : {
-            path : "/news",
+            path : "/what-is-new",
             label : "What's New?",
             element : NewsEventsPage,
             children : [
-                {label : "News", path : "/news/news", element : NewsPage},
-                {label : "Upcoming Events", path : "/news/events", element : UpcomingEventsPage},
-                {label : "Announcements", path : "/news/announcements", element : AnnouncementsPage},
-                {label : "Photo Gallery", path : "/news/gallery", element : PhotoGalleryPage},
+                {label : "News", path : "/what-is-new/news", element : NewsPage},
+                {label : "Upcoming Events", path : "/what-is-new/events", element : UpcomingEventsPage},
+                {label : "Announcements", path : "/what-is-new/announcements", element : AnnouncementsPage},
+                {label : "Photo Gallery", path : "/what-is-new/gallery", element : PhotoGalleryPage},
             ]
         }
     },
@@ -60,6 +60,7 @@ export const navigationItems = [
             element : LifePage,
             children : [
                 {label : "JHS", path : "/life/jhs", element : JhsPage},
+                {label : "Student Organization", path : "/life/student-organization", element : StudentOrgPage},
                 {label : "SHS", path : "/life/shs", element : ShsPage},
                 {label : "Facilities", path : "/life/facilities", element : FacilitiesPage},
             ]

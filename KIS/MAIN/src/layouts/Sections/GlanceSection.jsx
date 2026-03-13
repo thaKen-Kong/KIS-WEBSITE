@@ -28,12 +28,9 @@ export function GlanceSection() {
                             >
                                 <StrandTracks tracks={["STEM", "ABM", "HUMMS", "TVL"]} />
                             </BannerCard>
-                            <Link to="/life">
-                                <OutlineButton>
+                                <OutlineButton path="life">
                                     Show More
                                 </OutlineButton>
-                            </Link>
-                            
                         </div>
                         </div>
                         <div className="glance-block">

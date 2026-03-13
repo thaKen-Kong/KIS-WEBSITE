@@ -75,22 +75,34 @@ export function TimelineContainer({ items = [], className = "" }) {
 
 function PersonCard({ name, role, image, isLead = false }) {
     return (
-        <div className={`person-card ${isLead ? "is-lead" : ""}`.trim()}>
-            {image && <img className="person-avatar" src={image} alt={name || role || "Person"} />}
+        <div className={`person-card ${isLead ? "is-lead" : "not-lead"}`.trim()}>
+            {image && <img className={`person-avatar ${isLead ? "is-lead" : "not-lead"}`.trim()} src={image} alt={name || role || "Person"} />}
             {name && <h3 className="person-name">{name}</h3>}
             {role && <p className="person-role">{role}</p>}
         </div>
     )
 }
 
+export function PeopleGrid({member, className=""}) {
+    return (
+        <>
+            <div className="people-grid">
+                {member.map((person, index) => (
+                    <PersonCard
+                        key={`${person.name || person.role || "person"}-${index}`}
+                        name={person.name}
+                        role={person.role}
+                        image={person.image}
+                    />
+                ))}
+            </div>
+        </>
+    )
+}
+
 export function PeopleContainer({ title, lead, members = [], className = "" }) {
     return (
         <div className={`people-container ${className}`.trim()}>
-            {title && (
-                <div className="people-title">
-                    <span>{title}</span>
-                </div>
-            )}
             {lead && (
                 <div className="people-lead">
                     <PersonCard
@@ -101,16 +113,7 @@ export function PeopleContainer({ title, lead, members = [], className = "" }) {
                     />
                 </div>
             )}
-            <div className="people-grid">
-                {members.map((person, index) => (
-                    <PersonCard
-                        key={`${person.name || person.role || "person"}-${index}`}
-                        name={person.name}
-                        role={person.role}
-                        image={person.image}
-                    />
-                ))}
-            </div>
+            <PeopleGrid member={members} />
         </div>
     )
 }
@@ -124,6 +127,14 @@ export function HymnContainer({ video, lyrics, className = "" }) {
     )
 }
 
+export function VideoContainer({video, className = ""}) {
+    return (
+        <>
+        
+        </>
+    )
+}
+
 export function LinedLabel({ text, className = "" }) {
     if (!text) return null
     return (
@@ -132,6 +143,7 @@ export function LinedLabel({ text, className = "" }) {
         </div>
     )
 }
+
 
 export function GridContainer({ children, className = "", itemClassName = "" }) {
     const items = Children.toArray(children)
@@ -147,6 +159,16 @@ export function TextContainer( {children, className = ""} ) {
     return (
         <>
             
+        </>
+    )
+}
+
+export function ColumnContainer({ children, className = "" }) {
+    return (
+        <>
+            <div className={`column-container ${className}`}>
+                {children}
+            </div>
         </>
     )
 }

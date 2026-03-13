@@ -4,6 +4,7 @@ import { MainLayout } from './layouts/MainLayout'
 import { HomePage } from './pages/HomePage'
 import { Route, Routes } from 'react-router-dom'
 import { navigationItems } from './data/navigationData'
+import { NewsItem } from './pages/NewsItems'
 
 const buildRoutes = () => {
   const routes = []
@@ -43,6 +44,7 @@ function App() {
             const Element = route.element
             return <Route key={route.key} path={route.path} element={<Element />} />
           })}
+          <Route path='/what-is-new/news/:slug' element={<NewsItem />} />
         </Route>
       </Routes>
     </>

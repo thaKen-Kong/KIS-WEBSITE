@@ -15,7 +15,7 @@ export function UpcomingEventsSection() {
                     </div>
                     <p className="news-subtitle">Top three events this month</p>
                     <div className="news-actions">
-                        <PrimaryButton type="button">View All Events</PrimaryButton>
+                        <PrimaryButton type="button" path="what-is-new/events">View All Events</PrimaryButton>
                     </div>
                     <div className="news-divider" aria-hidden="true"></div>
                 </div>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export function Card({ title, description, image, children, date, className = "" }) {
     return (
         <div className={`kis-card ${className}`.trim()}>
@@ -9,5 +11,15 @@ export function Card({ title, description, image, children, date, className = ""
                 {children}
             </div>
         </div>
+    )
+}
+
+export function NewsCard( {content = {} } ) {
+    return (
+        <>
+            <Link to={`ken`} className="card-link">
+                <Card {...content}/>
+            </Link>
+        </>
     )
 }
