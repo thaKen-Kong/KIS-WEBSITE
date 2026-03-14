@@ -3,7 +3,7 @@ import { TwoColumnContainer } from '../../components/utils/Container'
 
 export function MissionVisionPage() {
   return (
-    <NavigationPages title="Mission and Vision">
+    <NavigationPages title="Mission and Vision" subtitle={"// Our mission and vision"}>
       <TwoColumnContainer
         leftTitle="Mission"
         rightTitle="Vision"

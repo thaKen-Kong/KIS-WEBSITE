@@ -5,7 +5,7 @@ export function AboutPage() {
   const about = navigationItems.find((item) => item.ABOUT)?.ABOUT
 
   return (
-    <NavigationPages title="About KIS">
+    <NavigationPages title="About KIS" subtitle={"//Learn more about our school"}>
       <NavigationChildrenGrid items={about?.children || []} />
     </NavigationPages>
   )

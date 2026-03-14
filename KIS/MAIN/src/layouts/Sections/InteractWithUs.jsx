@@ -5,7 +5,7 @@ export function InteractWithUs(){
     const socials = [
         {
             label: "Facebook",
-            href: "https://www.facebook.com",
+            href: "https://www.facebook.com/kaytitingaintegratedschool",
             icon: (
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path

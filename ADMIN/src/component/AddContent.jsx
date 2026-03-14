@@ -32,12 +32,3 @@ export function Item( {id, title, date}) {
     )
 }
 
-export function AddItemButton(){
-    return (
-        <>
-            <button>
-                <img src="/src/assets/icons/" alt="" />
-            </button>
-        </>
-    )
-}

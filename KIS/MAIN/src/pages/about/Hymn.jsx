@@ -43,7 +43,7 @@ const kaytitingaSchoolSong = [
 
 export function HymnPage() {
   return (
-    <NavigationPages title="Hymn">
+    <NavigationPages title="Hymn" subtitle={"// Sing"}>
       <HymnContainer
         video={
           <div className="hymn-video-wrap">

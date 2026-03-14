@@ -144,6 +144,18 @@ export function LinedLabel({ text, className = "" }) {
     )
 }
 
+export function MultiLinedLabel({text, className =""}) {
+    return (
+        <div className={`m-lined-label ${className}`.trim()}>
+        <div className="m-line"></div>
+        <span>
+            {text}
+        </span>
+        <div className="m-line"></div>
+        </div>
+    )
+}
+
 
 export function GridContainer({ children, className = "", itemClassName = "" }) {
     const items = Children.toArray(children)
@@ -169,6 +181,18 @@ export function ColumnContainer({ children, className = "" }) {
             <div className={`column-container ${className}`}>
                 {children}
             </div>
+        </>
+    )
+}
+
+export function PageHeader( {title, subtitle} ) {
+    return (
+        <>
+            <header className="navigation-page-header">
+                <img className="navigation-page-bg" src="/src/assets/images/bg_1.jpg" alt="" aria-hidden="true" />
+                {title && <h1 className="navigation-page-title">{title}</h1>}
+                {subtitle && <p className="navigation-page-subtitle">{subtitle}</p>}
+            </header>
         </>
     )
 }

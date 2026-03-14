@@ -3,6 +3,11 @@ import { supabase } from "./supabase-client";
 
 export async function getNews() {
     const {data, error} = await supabase.from("news").select("*")
-    if (error) console.log(error)
+    return data
+}
+
+
+export async function getIndividualNews(slug) {
+    const {data, error} = await supabase.from("news").select("*").eq("slug", slug).single()
     return data
 }

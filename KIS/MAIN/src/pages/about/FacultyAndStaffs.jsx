@@ -12,7 +12,7 @@ const people = [
 
 export function FacultyAndStaffsPage() {
   return (
-    <NavigationPages title="Faculty and Staffs"> 
+    <NavigationPages title="Faculty and Staffs" subtitle={"// "}> 
     
     <LinedLabel text="LIST OF STAFFS" className='enlarged'/>
     

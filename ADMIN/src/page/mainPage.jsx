@@ -27,6 +27,10 @@ export function MainPage() {
 
     }, [])
 
+    async function removeSession() {
+        const {data, error} = await supabase.auth.signOut()
+    }
+
     return (
         <>
             <div className="panel-layout">

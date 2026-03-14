@@ -69,7 +69,7 @@ export function HistoryPage() {
   ]
 
   return (
-    <NavigationPages title="History">
+    <NavigationPages title="History" subtitle={"// How it started"}>
       <TimelineContainer items={timelineItems} />
     </NavigationPages>
   )

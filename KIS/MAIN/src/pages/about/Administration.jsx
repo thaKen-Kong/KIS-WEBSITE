@@ -18,7 +18,7 @@ export function AdministrationPage() {
   ]
 
   return (
-    <NavigationPages title="Administration">
+    <NavigationPages title="Administration" subtitle={"// Know who we are"}>
       <LinedLabel className='enlarged' text="SCHOOL ORGANIZATION"/>
       <PeopleContainer
         title="SCHOOL ORGANIZATION"
