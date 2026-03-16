@@ -419,9 +419,9 @@ export default Carousel;
 
 
 export const ContactUs = ({
-  address = "123 Main St, City, Country",
-  phone = "+1 (555) 123-4567",
-  email = "info@school.edu",
+  address = "Kaytitinga 1, Alfonso, Cavite",
+  phone = "(046)-522-0090",
+  email = "depedcavite.kaytitinganhs@gmail.com",
   socialLinks = [
     { name: "Facebook", url: "#" },
     { name: "Instagram", url: "#" },

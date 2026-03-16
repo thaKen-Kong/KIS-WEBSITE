@@ -22,8 +22,8 @@ export function FooterSection() {
                     <div className="footer-contact">
                         <h4>Contact</h4>
                         <p>Kaytitinga, Alfonso, Cavite</p>
-                        <p>(000) 000-0000</p>
-                        <p>info@kis.edu.ph</p>
+                        <p>(046)-522-0090</p>
+                        <p>depedcavite.kaytitinganhs@gmail.com</p>
                     </div>
                 </div>
                 <div className="footer-bottom">
