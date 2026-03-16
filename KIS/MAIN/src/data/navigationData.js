@@ -1,4 +1,4 @@
-
+import { HomePage } from "../pages/HomePage"
 import { AboutPage } from "../pages/about/About";
 import { MissionVisionPage } from "../pages/about/MissionVision";
 import { HistoryPage } from "../pages/about/History";
@@ -26,6 +26,13 @@ import { ContactPlaceholder2Page } from "../pages/contact/ContactPlaceholder2";
 import { ContactPlaceholder3Page } from "../pages/contact/ContactPlaceholder3";
 
 export const navigationItems = [
+    {
+        HOME : {
+            path : "/",
+            label : "Home",
+            element : HomePage
+        }
+    },
     {
         ABOUT : {
             path : "/about",
