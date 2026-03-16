@@ -9,7 +9,6 @@ export function OverviewSection() {
                     <div className="overview-title">
                         <span>OVERVIEW</span>
                     </div>
-                    <img src="https://www.facebook.com/photo/?fbid=1227860212818066&set=pcb.1227861626151258" />
                     <ColumnContainer className="overview-video">
                         <LinedLabel text="FEATURED VIDEO" />
                         <iframe

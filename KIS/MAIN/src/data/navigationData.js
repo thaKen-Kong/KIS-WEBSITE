@@ -84,10 +84,6 @@ export const navigationItems = [
             label : "Contact",
             element : ContactPage,
             children : [
-                {label : "Inquiry Form", path : "/contact/inquiry-form", element : InquiryFormPage},
-                {label : "", path : "/contact/placeholder-1", element : ContactPlaceholder1Page},
-                {label : "", path : "/contact/placeholder-2", element : ContactPlaceholder2Page},
-                {label : "", path : "/contact/placeholder-3", element : ContactPlaceholder3Page},
             ]
         }
     }

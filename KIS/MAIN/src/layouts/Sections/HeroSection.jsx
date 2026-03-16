@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import heroBg from "../../assets/images/bg_1.jpg";
+import heroBg from "../../assets/images/bg/bg_1.jpg";
 import { supabase } from "../../client/supabase-client";
 
 export function HeroSection() {

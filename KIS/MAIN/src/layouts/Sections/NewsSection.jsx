@@ -1,7 +1,7 @@
 import { Container } from "../../components/utils/Container";
 import { Card, NewsCard } from "../../components/utils/Card";
 import { PrimaryButton } from "../../components/utils/Buttons";
-import heroBg from "../../assets/images/bg_1.jpg";
+import heroBg from "../../assets/images/bg/bg_1.jpg";
 import { getNews } from "../../client/newsApi";
 import { useEffect, useState } from "react";
 import { Loading } from "../../components/utils/Loading";

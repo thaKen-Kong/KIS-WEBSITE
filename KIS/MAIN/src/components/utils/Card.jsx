@@ -45,3 +45,41 @@ export function UtilCard( {children, className = ""} ) {
         </>
     )
 }
+
+export function ImageCard({children, className="", image}) {
+    return (
+        <>
+            <div className={`kis-card ${className}`.trim()}>
+                <img src={image} alt=""/>
+                <div className="overlay-content">
+                  {children}
+                </div>
+                
+            </div>
+        </>
+    )
+}
+
+export function WholeImage({children, className="", image}) {
+  return (
+    <>
+      <div className={`whole-image ${className}`}>
+        <img src={image} alt="" />
+        <div className="overlay-content">
+            {children}
+        </div>
+      </div>
+    </>
+  )
+}
+
+export function HexagonCard({path = "#",image, label = ""}) {
+  return (
+    <div className="hexagon-card">
+      <div className="hexagon">
+        <a href={path}><img src={image} alt={label} /></a>
+      </div>
+      {label && <p className="hex-label">{label}</p>}
+    </div>
+  );
+}

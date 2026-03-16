@@ -3,6 +3,47 @@
 ================== */
 
 @media (max-width: 640px) {
+  /* Adjust text sizes for mobile readability */
+  .header-section h1,
+  .header-section h2,
+  .two-column-title,
+  .news-title span,
+  .glance-title span,
+  .overview-title span,
+  .interact-title span {
+    font-size: 1.8rem;
+  }
+
+  .kis-card p,
+  .navigation-page-subtitle,
+  .timeline-content,
+  .event-card-description {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
+
+  /* Adjust video height */
+  .hymn-video iframe {
+    min-height: 200px;
+    max-height: 260px;
+  }
+
+  /* Convert 2x2 grid into column */
+  .grid-2by2,
+  .nav-children-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Adjust images in mobile view */
+  .grid-2by2 img,
+  .kis-card img,
+  .event-card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
   .header-section {
     flex-direction: column;
     height: auto;

@@ -343,18 +343,477 @@
 /* =================
 ---UTILS------------
 ================== */
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh; /* Carousel takes full viewport height */
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%; /* Full height so slides fill container */
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100%; /* Each slide fills full viewport */
+  position: relative;
+}
+
+/* Navigation buttons */
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.carousel-prev { left: 20px; }
+.carousel-next { right: 20px; }
+
+/* Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.carousel-dots .dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel-dots .dot.active {
+  background: #fff;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  background-color: red;
+}
+
+.flex-container.vbox {
+  flex-direction: column;
+}
+
+.flex-container.hbox {
+  flex-direction: row;
+}
+
+.photo-container {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  min-height: 100vh;
+}
+
+.photo-container.green {
+  background-color:#0f8d57;
+}
+
+/* Variation One: dynamic big + small layout */
+.photo-container.variationOne {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 150px);
+  grid-template-areas:
+    "big small1 small2 small3"
+    "big small4 small5 small6"
+    "big small7 small8 small9";
+}
+
+/* Fallback for missing images: auto-fill remaining cells */
+.photo-container.variationOne img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Assign the first image as big */
+.photo-container.variationOne img:nth-child(1) { grid-area: big; }
+.photo-container.variationOne img:nth-child(2) { grid-area: small1; }
+.photo-container.variationOne img:nth-child(3) { grid-area: small2; }
+.photo-container.variationOne img:nth-child(4) { grid-area: small3; }
+.photo-container.variationOne img:nth-child(5) { grid-area: small4; }
+.photo-container.variationOne img:nth-child(6) { grid-area: small5; }
+.photo-container.variationOne img:nth-child(7) { grid-area: small6; }
+.photo-container.variationOne img:nth-child(8) { grid-area: small7; }
+.photo-container.variationOne img:nth-child(9) { grid-area: small8; }
+.photo-container.variationOne img:nth-child(10) { grid-area: small9; }
+
+.page {
+    box-shadow:
+    0 -4px 6px rgba(0, 0, 0, 0.1),  /* top shadow */
+    0 4px 6px rgba(0, 0, 0, 0.1);   /* bottom shadow */
+  min-height: 100vh;
+  height: auto;
+  padding: 10px;
+}
+
+/* Base text label */
+.label {
+  display: inline;        /* only affects text, not container */
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Text color variants */
+.label.green {
+  color: #108a53;
+}
+
+.label.white {
+  color: #ffffff;
+}
+
+/* Alignment (text only) */
+.label.left {
+  text-align: left;
+}
+
+.label.right {
+  text-align: right;
+}
+
+.label.middle {
+  text-align: center;
+}
+
+/* Text shadow effect */
+.label.shadow {
+  text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Gradient text */
+.label.gradient {
+  background: linear-gradient(90deg, #108a53, #f4d03f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Text-only size variants */
+.label.enlarged {
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+
+.label.diminished {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Hexagon grid container */
+.hexagon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); /* auto-fit for responsiveness */
+  gap: 10px;                /* spacing between hexagons */
+  justify-items: center;     /* center items horizontally */
+  padding: 16px;
+}
+
+/* Optional: stagger rows for a honeycomb effect */
+.hexagon-grid .hexagon-card:nth-child(odd) {
+  margin-top: 25px; /* offset for every other card */
+}
+
+/* Hexagon card container */
+.hexagon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+
+
+/* Hexagon shape */
+.hexagon {
+  width: 230px;      /* adjust size */
+  aspect-ratio: 1;   /* keep square aspect ratio for hexagon */
+  clip-path: polygon(
+    25% 5%, 75% 5%, 
+    100% 50%, 75% 95%, 
+    25% 95%, 0% 50%
+  );                  /* hexagon shape */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* optional shadow */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  /* subtle animation on load */
+  animation: hexFadeIn 1s ease forwards;
+}
+
+.hexagon.enlarged {
+  width: 300px;
+}
+
+/* Image inside hexagon */
+.hexagon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect: zoom in */
+.hexagon:hover img {
+  transform: scale(1.05);
+}
+
+/* Label below the hexagon */
+.hex-label {
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Animation keyframes */
+@keyframes hexFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.quote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 32px;
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: #f0fff6;  /* light, subtle background */
+  border-left: 6px solid #0f8d57; /* visual accent */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  animation: fadeScaleIn 1.2s ease forwards;
+}
+
+/* Quote text */
+.quote-container .quote {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #333333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Animation */
+@keyframes fadeScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.no-opacity {
+  opacity: 1;
+}
+
+/* WholeImage container */
+.whole-image {
+  position: relative;
+  width: 100%;          /* full width of parent container */
+  height: 80vh;         /* 80% of viewport height */
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Optional: subtle shadow for depth */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  /* Animation */
+  animation: fadeZoomIn 1.2s ease forwards;
+
+}
+
+.whole-image.dark {
+  background-color: #000000;
+}
+
+/* Image inside the container */
+.whole-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* ensures image covers the container */
+  opacity: 0.4;            /* slightly translucent for overlay readability */
+  transition: transform 0.8s ease;  /* smooth hover zoom */
+}
+
+/* Optional hover effect: subtle zoom */
+.whole-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay content */
+.whole-image .overlay-content {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+
+  /* Optional: text fade-in */
+  opacity: 0;
+  animation: overlayFadeIn 1s 0.8s forwards; /* delay slightly after image animation */
+}
+
+/* Keyframes for container animation */
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Keyframes for overlay text */
+@keyframes overlayFadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Grid Container */
+.two-by-two {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 4 columns */
+  grid-auto-rows: 1fr;                  /* rows auto-size equally */
+  gap: 24px;                             /* space between items */
+  width: 100%;
+  padding: 16px;
+}
+
+/* Make all child components fill the grid cell */
+.two-by-two > * {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-content-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+
+  width: 100%;
+  padding: 24px;
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  background-color: #f5f5f5;
+}
+
+.banner-content-container img {
+  width: 320px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.banner-content h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.banner-content p {
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+.banner-container {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+}
+
+.banner-container.dark {
+  background-color: black;
+}
+
+.banner-container.dark img{
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .loading-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 50vh;
 }
 
 .loading-spinner {
-  width: 50px;
-  height: 50px;
-  border: 6px solid #ccc;
-  border-top: 6px solid #4ade80; /* green-ish top */
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ffffff;
+  border-top: 5px solid #4ade80; /* green-ish top */
+
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -425,6 +884,10 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
+.horizontal-container.green {
+  background-color: #0f8d57;
+}
+
 .page-container {
   width: 100%;
   max-width: 1200px;
@@ -434,6 +897,10 @@
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+}
+
+.page-container.green {
+  background-color: #0f8d57;
 }
 
 .page-container.gap {
@@ -751,15 +1218,52 @@
   justify-content: center; /* centers the span between the lines */
   gap: 16px;
   width: 100%; /* ensures it stretches with parent */
-  color: var(--kis-green);
+ color: var(--kis-green);
   letter-spacing: 0.2em;
   font-weight: 700;
+}
+
+.lined-label.diminished {
+  font-size: 0.1rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+
+.lined-label.gradient {
+  background: linear-gradient(to bottom, var(--kis-green), #f4d03f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
 }
 
 .lined-label.enlarged span {
   font-size: 3rem;
   letter-spacing: 0.1em;
   font-weight: 700;
+}
+
+.lined-label.white span {
+  color: white;
+}
+
+.lined-label.enlarged.white {
+  color: white;
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.lined-label.green {
+   
+}
+
+.lined-label.white::before,
+.lined-label.white::after {
+  content: "";
+  height: 2px;
+  flex-grow: 1; /* allows lines to stretch */
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .lined-label::before,
@@ -808,7 +1312,13 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   justify-content: center;
-  
+}
+
+.grid-container.stretch {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
 }
 
 .grid-item {
@@ -914,6 +1424,34 @@
   width: 320px;
   min-height: 360px;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* Image card variant */
+.kis-card.image-card {
+  background: #000000; /* black background */
+  position: relative;
+}
+
+/* Make image fill the whole card with slight opacity */
+.kis-card.image-card img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  object-fit: cover; /* ensures the image covers the space without distortion */
+  opacity: 0.85; /* slightly lowered opacity */
+  display: block;
+}
+
+.kis-card.image-card .overlay-content {
+  position: absolute;
+  bottom: 16px;          /* stick to bottom */
+  left: 16px;
+  right: 16px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1;
 }
 
 .kis-card.util-card {
@@ -1797,4 +2335,62 @@
 .nav-child-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+}
+
+
+/* CONTACT US PAGE */
+.contact-us {
+  padding: 60px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.contact-info {
+  max-width: 400px;
+  text-align: left;
+}
+
+.contact-info h2 {
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.contact-info p,
+.social-links a {
+  margin-bottom: 16px;
+  display: block;
+  color: #34495e;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #1abc9c;
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 400px;
+  border: 0;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info {
+    max-width: 100%;
+    text-align: center;
+  }
 }

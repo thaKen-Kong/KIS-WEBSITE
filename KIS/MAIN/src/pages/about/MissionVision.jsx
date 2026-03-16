@@ -1,10 +1,12 @@
 import { NavigationPages } from '../NavigationPage'
-import { TwoColumnContainer } from '../../components/utils/Container'
+import { LinedLabel, TwoColumnContainer } from '../../components/utils/Container'
+import { ImageCard, WholeImage } from '../../components/utils/Card'
 
 export function MissionVisionPage() {
   return (
     <NavigationPages title="Mission and Vision" subtitle={"// Our mission and vision"}>
       <TwoColumnContainer
+        className='gradient enlarged'
         leftTitle="Mission"
         rightTitle="Vision"
         leftContent={

@@ -1,5 +1,5 @@
 import { NavigationPages } from '../NavigationPage'
-import { GridContainer, LinedLabel } from '../../components/utils/Container'
+import { GridContainer, Label, LinedLabel } from '../../components/utils/Container'
 import { Card, NewsCard } from '../../components/utils/Card'
 import { Pagination } from '../../components/utils/Pagination'
 import { useEffect, useState } from 'react'
@@ -25,12 +25,12 @@ export function NewsPage() {
   return (
     <NavigationPages title="News">
       <LinedLabel text="NEWS LIST" className='enlarged'/>
-      <GridContainer className="news-grid">
         {newsList.length === 0 ? (<Loading />) : newsList.map((item, key) => (
+          <GridContainer className="news-grid">
           <NewsCard content={item} key={key} />
+          </GridContainer>
         ))}
-      </GridContainer>
-      <Pagination page={page} totalPages={5} onPageChange={(p) => setPage(p)} />
+      <Pagination page={page} totalPages={1} onPageChange={(p) => setPage(p)} />
     </NavigationPages>
   )
 }

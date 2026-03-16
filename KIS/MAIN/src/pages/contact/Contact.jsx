@@ -1,4 +1,6 @@
+import { ContactUs, InteractContainer, LinedLabel, OverviewContainer } from '../../components/utils/Container'
 import { navigationItems } from '../../data/navigationData'
+import { InteractWithUs } from '../../layouts/Sections/InteractWithUs'
 import { NavigationChildrenGrid, NavigationPages } from '../NavigationPage'
 
 export function ContactPage() {
@@ -6,7 +8,12 @@ export function ContactPage() {
 
   return (
     <NavigationPages title="Contact">
-      <NavigationChildrenGrid items={contact?.children || []} />
+      <OverviewContainer>
+        <LinedLabel text="GET IN TOUCH WITH US" className='enlarged gradient'/>
+      </OverviewContainer>
+      <ContactUs />
+      <InteractWithUs />
+
     </NavigationPages>
   )
 }

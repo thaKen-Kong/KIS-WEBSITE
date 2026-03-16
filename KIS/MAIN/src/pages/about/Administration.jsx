@@ -9,12 +9,6 @@ export function AdministrationPage() {
   }
 
   const administrationMembers = [
-    { name: '', role: 'Assistant Principal', image : "ken" },
-    { name: '', role: 'Head Teacher' , image : "ken"},
-    { name: '', role: 'Registrar', image : "ken" },
-    { name: '', role: 'Guidance Coordinator', image : "ken" },
-    { name: '', role: 'Property Custodian', image : "ken" },
-    { name: '', role: 'School Nurse', image : "ken" },
   ]
 
   return (

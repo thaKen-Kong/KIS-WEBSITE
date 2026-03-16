@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage'
 import { Route, Routes } from 'react-router-dom'
 import { navigationItems } from './data/navigationData'
 import { NewsItem } from './pages/NewsItems'
+import { ScrollToHash } from './components/utils/ScrollToHasj'
 
 const buildRoutes = () => {
   const routes = []
@@ -37,6 +38,7 @@ function App() {
 
   return (
     <>
+    <ScrollToHash />
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
