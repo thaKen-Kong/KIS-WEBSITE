@@ -29,7 +29,7 @@ export function Card({ title, content, image, children, date, className = "" }) 
 export function NewsCard( {content = {} } ) {
     return (
         <>
-            <Link to={`${content.slug}`} className="card-link">
+            <Link to={`/what-is-new/news/${content.slug}`} className="card-link">
                 <Card {...content}/>
             </Link>
         </>

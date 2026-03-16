@@ -1,6 +1,6 @@
 import { supabase } from "../data/supabase";
 import { HeaderLabel } from "./Label";
-import { Children, createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const ModalContext = createContext()
 
@@ -14,7 +14,9 @@ export function AddModalProvider( {children}) {
     const [imageUrl, setImageUrl] = useState("")
     const [slug, setSlug] = useState("")
 
-    const [itemData, setItemData] = useState(null)
+    const [saving, setSaving] = useState(false)
+    const [uploading, setUploading] = useState(false)
+    const [errorMessage, setErrorMessage] = useState("")
 
     function handleFileChange(e) {
         setFile(e.target.files[0])
@@ -22,46 +24,64 @@ export function AddModalProvider( {children}) {
 
     async function uploadImage() {
         if (!file) {
-            return
+            setErrorMessage("Please चुनan image file.")
+            return ""
         }
 
         const fileName = `${Date.now()}-${file.name}`
 
-        const {data, error} = await supabase.storage.from("images").upload(fileName, file)
+        setUploading(true)
+        setErrorMessage("")
+        const {data, error} = await supabase.storage.from("images").upload(fileName, file, {
+            cacheControl: "3600",
+            upsert: true,
+        })
 
         if (error) {
             console.error('Upload error:', error);
-            return;
+            setErrorMessage("Image upload failed. Please try again.")
+            setUploading(false)
+            return ""
         }
 
         const {data : urlData, error: urlError} = supabase.storage.from('images').getPublicUrl(data.path)
         
-        if (!urlData.publicUrl === "") {
-          setImageUrl(urlData.publicUrl)
+        const publicUrl = urlData?.publicUrl || ""
+        if (publicUrl) {
+          setImageUrl(publicUrl)
         }
+        setUploading(false)
+        return publicUrl
     }
 
-    
-
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
+        setSaving(true)
+        setErrorMessage("")
 
-        setItemData({
+        const finalImageUrl = imageUrl || (file ? await uploadImage() : "")
+        if (!finalImageUrl) {
+            setErrorMessage("Please upload an image before saving.")
+            setSaving(false)
+            return
+        }
+
+        const payload = {
             title : title,
             date : date,
             content : content,
-            image : imageUrl,
+            image : finalImageUrl,
             slug : slug
-        })
-
-        if (itemData) {
-            postData()
-            console.log(itemData)
         }
-    }
 
-    async function postData() {
-        const {data, error} = await supabase.from("news").insert([itemData])
+        const {error} = await supabase.from("news").insert([payload])
+        if (error) {
+            console.error("Insert error:", error)
+            setErrorMessage("Saving failed. Please try again.")
+            setSaving(false)
+            return
+        }
+        setSaving(false)
     }
 
     function createSlug(word) {
@@ -92,7 +112,9 @@ export function AddModalProvider( {children}) {
           <label>
             Image
             <input type="file" accept="image/*" onChange={handleFileChange}/>
-            <button className="submit-btn" onClick={uploadImage}>Upload Image</button>
+            <button type="button" className="submit-btn" onClick={uploadImage}>
+              {uploading ? "UPLOADING..." : "Upload Image"}
+            </button>
           </label>
 
           <label>
@@ -100,7 +122,10 @@ export function AddModalProvider( {children}) {
             <textarea value={content} onChange={e => setContent(e.target.value)} placeholder="Enter content..." required rows={4}></textarea>
           </label>
 
-          <button type="submit" className="submit-btn">Add Item</button>
+          {errorMessage ? <p className="form-error">{errorMessage}</p> : null}
+          <button type="submit" className="submit-btn">
+            {saving ? "SAVING..." : "Add Item"}
+          </button>
         </form>
       </div>
     </section>

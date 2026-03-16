@@ -1,7 +1,3 @@
-import { useState } from "react";
-
-
-
 export function AddContent( {children} ) {
   return (
     <section className="item-list-container">
@@ -21,12 +17,14 @@ export function AddContent( {children} ) {
 }
 
 export function Item( {id, title, date}) {
+    const formattedDate = date ? new Date(date).toLocaleDateString() : "-"
+
     return (
         <>
             <div className="table-row">
-                <div className="table-cell">1</div>
-                <div className="table-cell">Sample Title</div>
-                <div className="table-cell">March 13, 2026</div>
+                <div className="table-cell">{id}</div>
+                <div className="table-cell">{title || "-"}</div>
+                <div className="table-cell">{formattedDate}</div>
             </div>
         </>
     )

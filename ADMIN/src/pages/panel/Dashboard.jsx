@@ -1,4 +1,4 @@
-import { Container } from "../../component/Container";
+import { Container } from "../../components/Container";
 
 export function Dashboard() {
     return (

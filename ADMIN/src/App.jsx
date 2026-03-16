@@ -1,14 +1,16 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
-import { LoginForm, RegisterForm } from './component/LoginForm'
-import { PageProvider, useSession } from './page/admin'
-import { Outlet, Route, Router, Routes, useNavigate, Navigate } from 'react-router-dom'
-import { supabase } from './data/supabase'
-import { MainPage } from './page/mainPage'
-import { Dashboard } from './page/panel-ui/Dashboard'
-import { News } from './page/panel-ui/News'
-import { Announcement } from './page/panel-ui/Announcement'
-import { Events } from './page/panel-ui/Event'
+import { LoginForm } from './components/LoginForm'
+import { RegisterForm } from './components/RegisterForm'
+import { useSession } from './contexts/SessionContext'
+import { Outlet, Route, Routes, useNavigate, Navigate, useLocation } from 'react-router-dom'
+import { AdminPanelLayout } from './layouts/AdminPanelLayout'
+import { Home } from './pages/panel/Home'
+import { Dashboard } from './pages/panel/Dashboard'
+import { News } from './pages/panel/News'
+import { Announcement } from './pages/panel/Announcement'
+import { Events } from './pages/panel/Event'
+import { NotFound } from './pages/NotFound'
 
 function Form() {
   const [formType, setFormType] = useState(true)
@@ -28,9 +30,6 @@ function Form() {
 }
 
 function MainLayout() {
-
-  const {session, setSession} = useSession()
-
   return (
     <>
       <section className="main-layout">
@@ -45,16 +44,15 @@ function App() {
   const {session} = useSession()
 
   const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(()=>{
     
-    if (!session) {
-      return
-    } else {
-      navigate('/admin/panel-ui')
+    if (session && (location.pathname === '/admin' || location.pathname === '/' )) {
+      navigate('/admin/panel-ui/home')
     }
 
-  }, [session])
+  }, [session, location.pathname, navigate])
 
   return (
     <>  
@@ -63,12 +61,15 @@ function App() {
             <Route index element={<Navigate to="/admin" replace />} />
             <Route path='admin' element={<Form />} />
 
-            <Route path='admin/panel-ui/' element={<MainPage />}>
+            <Route path='admin/panel-ui/' element={<AdminPanelLayout />}>
+                <Route index element={<Navigate to="home" replace />} />
+                <Route path='home' element={<Home />} />
                 <Route path='dashboard' element={<Dashboard />}/>
                 <Route path='news' element={<News />}/>
                 <Route path='events' element={<Events />}/>
                 <Route path='announcement' element={<Announcement />}/>
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
     </>

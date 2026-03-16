@@ -1,3 +1,18 @@
 :root {
   font-family: inter;
+  --kis-green: rgb(16, 138, 83);
+  --kis-green-dark: rgb(12, 110, 66);
+  --kis-bg: rgb(233, 255, 228);
+  --kis-text: rgb(16, 30, 22);
+  --kis-muted: rgb(110, 124, 116);
+  --kis-border: rgba(16, 138, 83, 0.18);
+  --kis-card: #ffffff;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
 }
