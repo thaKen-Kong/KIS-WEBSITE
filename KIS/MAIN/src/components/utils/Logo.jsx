@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { logo } from "../../assets/images/images";
 
 
 export function Logo() {
@@ -6,7 +7,7 @@ export function Logo() {
         <>
         <Link to="/" className="logo-link">
             <div className="logo-section">
-                <img src="/src/assets/images/logo/logo.png" alt="" />
+                <img src={logo} alt="" />
                 <h2>KAYTITINGA INTEGRATED SCHOOL</h2>
             </div>
         </Link>

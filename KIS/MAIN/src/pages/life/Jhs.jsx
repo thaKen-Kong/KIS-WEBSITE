@@ -1,8 +1,8 @@
-﻿import { PrimaryButton } from '../../components/utils/Buttons'
+import { PrimaryButton } from '../../components/utils/Buttons'
 import { Card, UtilCard, ImageCard } from '../../components/utils/Card'
 import { BannerImageContainer, ColumnContainer, Container, GridContainer, LinedLabel, OverviewContainer, SeparationContainer, TextContainer, TimelineContainer } from '../../components/utils/Container'
 import { NavigationPages } from '../NavigationPage'
-import complab from "../../assets/images/facilities/complab.png";
+import { complab, competition2, image, matatagC } from '../../assets/images/images'
 
 const text = [
   {
@@ -27,11 +27,11 @@ export function JhsPage() {
               <LinedLabel text="STEM ACTIVITIES" className='white'/>
               <p>Hands-on science, technology, and math activities that encourage curiosity and innovation.</p>
             </ImageCard>
-            <ImageCard className="image-card" image='/src/assets/images/example-img/competition-2.jpg'>
+            <ImageCard className="image-card" image={competition2}>
               <LinedLabel text="COMPETITIONS" className='white'/>
               <p>Students participate in academic and skills competitions that build confidence and teamwork.</p>
             </ImageCard>
-            <ImageCard className="image-card" image="/src/assets/images/bg/image.png">
+            <ImageCard className="image-card" image={image}>
               <LinedLabel text="PROJECTS" className='white'/>
               <p>Collaborative projects that allow students to apply what they learn in real-world scenarios..</p>
             </ImageCard>
@@ -41,11 +41,12 @@ export function JhsPage() {
           </Container>
           <TimelineContainer items={text} />
           <ColumnContainer >
-            <BannerImageContainer image="/src/assets/images/example-img/matatag-c.png" />
+            <BannerImageContainer image={matatagC} />
             <PrimaryButton path="https://www.deped.gov.ph/matatag-curriculum/">Read More About the Curriculum</PrimaryButton>
           </ColumnContainer>
         </SeparationContainer>
     </NavigationPages>
   )
 }
+
 

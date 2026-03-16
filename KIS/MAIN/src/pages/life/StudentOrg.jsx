@@ -2,17 +2,18 @@ import { OutlineButton, PrimaryButton } from '../../components/utils/Buttons'
 import { HexagonCard, ImageCard, WholeImage } from '../../components/utils/Card'
 import { BannerContentContainer, BannerImageContainer, ColumnContainer, Container, GridContainer, HexagonGrid, Label, LinedLabel, OverviewContainer, Page, PageContainer, PhotoContainer, QuoteContainer, SeparationContainer, SocialsContainer, TextContainer, TimelineContainer, TwoColumnContainer } from '../../components/utils/Container'
 import { NavigationPages } from '../NavigationPage'
+import { sslg2, sslgLogo, torch } from '../../assets/images/images'
 
 const images = [
-  { src: "/src/assets/images/example-img/sslg_2.jpg", alt: "Photo 1" },
-  { src: "/src/assets/images/example-img/sslg_2.jpg", alt: "Photo 2" },
-  { src: "/src/assets/images/example-img/sslg_2.jpg", alt: "Photo 3" },
-  { src: "/src/assets/images/example-img/sslg_2.jpg", alt: "Photo 4" },
-  { src: "/src/assets/images/example-img/sslg_2.jpg", alt: "Photo 5" },
-  { src: "/src/assets/images/example-img/sslg_2.jpg", alt: "Photo 6" },
-  { src: "/src/assets/images/example-img/sslg_2.jpg", alt: "Photo 7" },
-  { src: "/src/assets/images/example-img/sslg_2.jpg", alt: "Photo 8" },
-  { src: "/src/assets/images/example-img/sslg_2.jpg", alt: "Photo 9" },
+  { src: sslg2, alt: "Photo 1" },
+  { src: sslg2, alt: "Photo 2" },
+  { src: sslg2, alt: "Photo 3" },
+  { src: sslg2, alt: "Photo 4" },
+  { src: sslg2, alt: "Photo 5" },
+  { src: sslg2, alt: "Photo 6" },
+  { src: sslg2, alt: "Photo 7" },
+  { src: sslg2, alt: "Photo 8" },
+  { src: sslg2, alt: "Photo 9" },
 ];
 
 
@@ -71,8 +72,8 @@ export function StudentOrgPage() {
         <LinedLabel text="OUR STUDENT ORGANIZATION" />
         <GridContainer className='stretch'>
         <SeparationContainer className='hbox'>
-          <HexagonCard image='/src/assets/images/logo/sslg-logo.jpg' className='dark' path="#sslg"/>
-          <HexagonCard image='/src/assets/images/logo/torch.jpg' className='dark' path="#thetorch"/>
+          <HexagonCard image={sslgLogo} className='dark' path="#sslg"/>
+          <HexagonCard image={torch} className='dark' path="#thetorch"/>
         </SeparationContainer>
       </GridContainer>
       </PageContainer>
@@ -92,11 +93,11 @@ export function StudentOrgPage() {
           <p>The SSLG represents the student body, promotes leadership, and organizes school-wide events and initiatives. It serves as the voice of students while fostering teamwork, responsibility, and school spirit.</p>
         </Container>
       </OverviewContainer>
-      <WholeImage image="/src/assets/images/example-img/sslg_2.jpg" className='dark'>
+      <WholeImage image={sslg2} className='dark'>
         <LinedLabel className='white' text="ABOUT SSLG" />
         <p>The Supreme Secondary Learner Government (SSLG) represents the voice of the student body and serves as a link between students, teachers, and school administrators. It promotes student leadership by giving learners opportunities to organize activities, lead programs, and participate in decision-making. Through these initiatives, the SSLG helps strengthen school spirit, teamwork, and a sense of unity within the school community.</p>
       </WholeImage>
-      <TwoColumnContainer leftTitle="WHAT WE DO" leftContent={<TimelineContainer items={what_we_do} />} rightTitle="OUR LOGO" rightContent={[<WholeImage className='dark' image="/src/assets/images/logo/sslg-logo.jpg" ><LinedLabel className='white' text="SSLG LOGO"/></WholeImage>,<OutlineButton path="https://sslgkaytitinga.my.canva.site"><Label className="shadow diminished" text="LEARN MORE ABOUT SSLG"/></OutlineButton>]} className='gradient'/>
+      <TwoColumnContainer leftTitle="WHAT WE DO" leftContent={<TimelineContainer items={what_we_do} />} rightTitle="OUR LOGO" rightContent={[<WholeImage className='dark' image={sslgLogo} ><LinedLabel className='white' text="SSLG LOGO"/></WholeImage>,<OutlineButton path="https://sslgkaytitinga.my.canva.site"><Label className="shadow diminished" text="LEARN MORE ABOUT SSLG"/></OutlineButton>]} className='gradient'/>
       </SeparationContainer>
     </Page>
 
@@ -107,7 +108,7 @@ export function StudentOrgPage() {
       <PageContainer className='green'>
         <LinedLabel text="THE TORCH / ANG TANGLAW" className='white enlarged' />
         <GridContainer className='stretch'>
-        <WholeImage image="/src/assets/images/logo/torch.jpg" className='dark' >
+        <WholeImage image={torch} className='dark' >
           <LinedLabel text="ABOUT THE TORCH" className='gradient'/>
           <p>The Campus Journalism <strong>THE TORCH</strong> organization develops students’ skills in writing, reporting, editing, and photography while producing school publications and covering school events.</p>
           <SocialsContainer label="LEARN MORE ABOUT US" socials={socials}/>

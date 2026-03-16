@@ -1,7 +1,8 @@
-﻿import { NavigationPages } from '../NavigationPage'
+import { NavigationPages } from '../NavigationPage'
 import { OverviewContainer, Container, PageContainer, LinedLabel, ColumnContainer, BannerContentContainer, Grid2by2, SeparationContainer, TwoColumnContainer, BannerImageContainer, TimelineContainer } from '../../components/utils/Container'
 import { WholeImage } from '../../components/utils/Card'
 import { OutlineButton, PrimaryButton } from '../../components/utils/Buttons'
+import { bg2, research, workImmersion } from '../../assets/images/images'
 
 const track = [
   { label : "STEM", content : "Science, Technology, Engineering, and Mathematics (STEM) focuses on developing analytical thinking, problem-solving, and innovation through science and technology. It prepares students for careers in engineering, medicine, information technology, and scientific research."},
@@ -46,13 +47,13 @@ export function ShsPage() {
             <LinedLabel text="WHAT WE DO?" className='enlarged'/>
             <TwoColumnContainer 
               leftTitle="RESEARCH PROJECTS"
-              leftContent={[<BannerImageContainer image="/src/assets/images/example-img/research.jpg" className='dark'/>, <TimelineContainer items={text}/>]}
+              leftContent={[<BannerImageContainer image={research} className='dark'/>, <TimelineContainer items={text}/>]}
               rightTitle="WORK IMMERSION"
-              rightContent={[<BannerImageContainer image='/src/assets/images/example-img/work-immersion.png' className='dark' />, <TimelineContainer items={text_2} />]}
+              rightContent={[<BannerImageContainer image={workImmersion} className='dark' />, <TimelineContainer items={text_2} />]}
             />
             <ColumnContainer className='green'>
               <LinedLabel text="CURRICULUM" />
-              <WholeImage image="/src/assets/images/example-img/bg_2.png" className='dark'>
+              <WholeImage image={bg2} className='dark'>
                 <LinedLabel className='white' text="LEARN MORE ABOUT OUR CURRICULUM" />
                 <p>Our Senior High School curriculum follows the Department of Education standards, combining core subjects, applied subjects, and specialized subjects based on the chosen track. This ensures students gain strong academic foundations while developing practical skills and critical thinking needed for college, careers, and everyday life.</p>
                 <PrimaryButton path="https://www.deped.gov.ph/strengthened-shs-program/">CLICK HERE TO LEARN MORE</PrimaryButton>
@@ -65,4 +66,6 @@ export function ShsPage() {
     </>
   )
 }
+
+
 
