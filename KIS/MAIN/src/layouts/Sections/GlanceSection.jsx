@@ -40,13 +40,12 @@ export function GlanceSection() {
                         <div className="glance-map">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.478008110162!2d120.82551207403552!3d14.107963188950036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd9df05e2ad96b%3A0x3670ac889eae7301!2sKaytitinga%20Integrated%20School!5e0!3m2!1sen!2sph!4v1773239524582!5m2!1sen!2sph"
-                                width="600"
-                                height="450"
                                 style={{ border: 0 }}
                                 allowFullScreen
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
                                 title="Kaytitinga Integrated School Map"
+                                className="map"
                             ></iframe>
                         </div>
                         </div>

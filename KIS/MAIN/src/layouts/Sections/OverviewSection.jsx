@@ -22,28 +22,24 @@ export function OverviewSection() {
                     ></iframe>
                     </ColumnContainer>
                     
-                    <Container className="overview-container">
-                        <div className="overview-card">
-                            <div className="overview-card-title">
-                                <span>About KIS</span>
-                            </div>
-                            <p>
+                    <TwoColumnContainer
+                        leftTitle="About KIS"
+                        rightTitle="Join Us"
+                        leftContent={[
+                            <p key="about-text">
                                 Kaytitinga Integrated School provides a safe, supportive learning
                                 environment that builds strong foundations in academics and character.
-                            </p>
-                            <OutlineButton path="about">Read More</OutlineButton>
-                        </div>
-                        <div className="overview-card">
-                            <div className="overview-card-title">
-                                <span>Join Us</span>
-                            </div>
-                            <p>
+                            </p>,
+                            <OutlineButton key="about-cta" path="about">Read More</OutlineButton>,
+                        ]}
+                        rightContent={[
+                            <p key="join-text">
                                 Join KIS for dedicated teachers, active student programs, and a campus
                                 community that helps learners grow with confidence.
-                            </p>
-                            <PrimaryButton path="admission/why-choose-us">Join Us</PrimaryButton>
-                        </div>
-                    </Container>
+                            </p>,
+                            <PrimaryButton key="join-cta" path="admission/why-choose-us">Join Us</PrimaryButton>,
+                        ]}
+                    />
                 </div>
             </section>
         </>

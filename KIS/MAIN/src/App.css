@@ -653,12 +653,11 @@
 .whole-image {
   position: relative;
   width: 100%;          /* full width of parent container */
-  height: 80vh;         /* 80% of viewport height */
+  height: auto;
   overflow: hidden;
   border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: stretch;
   /* Optional: subtle shadow for depth */
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   /* Animation */
@@ -672,8 +671,9 @@
 
 /* Image inside the container */
 .whole-image img {
+  grid-area: 1 / 1;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;       /* ensures image covers the container */
   opacity: 0.4;            /* slightly translucent for overlay readability */
   transition: transform 0.8s ease;  /* smooth hover zoom */
@@ -686,10 +686,10 @@
 
 /* Overlay content */
 .whole-image .overlay-content {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  right: 24px;
+  grid-area: 1 / 1;
+  align-self: end;
+  justify-self: stretch;
+  padding: 24px;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -1909,12 +1909,53 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+@media (max-width: 900px) {
+  .glance-map {
+    min-height: 180px;
+    height: auto;
+    max-width: 100vw;
+    border-radius: 8px;
+    overflow-x: auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .glance-map iframe {
+    aspect-ratio: 16/9;
+    min-height: 140px;
+    max-height: 40vh;
+    border-radius: 8px;
+    width: 100%;
+    display: block;
+  }
 }
 
 .glance-map iframe {
   width: 100%;
   height: 100%;
   border: 0;
+  aspect-ratio: 16/9;
+  min-height: 220px;
+  display: block;
+  max-width: 100%;
+  max-height: 70vh;
+}
+@media (max-width: 900px) {
+  .glance-map {
+    min-height: 220px;
+    height: auto;
+    max-width: 100vw;
+    border-radius: 8px;
+  }
+  .glance-map iframe {
+    aspect-ratio: 16/9;
+    min-height: 180px;
+    max-height: 40vh;
+    border-radius: 8px;
+  }
 }
 
 

@@ -361,10 +361,16 @@
   }
 
   img,
-  iframe,
   video {
     max-width: 100%;
     height: auto;
+  }
+
+  iframe {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 
   .horizontal-container,
@@ -376,6 +382,31 @@
     align-items: stretch;
   }
 
+  .separator.hbox {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .glance-block,
+  .glance-programs {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .glance-map {
+    width: 100%;
+    min-height: 220px;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .glance-map iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
   .page-container,
   .interact-container {
     padding: 18px;
@@ -384,7 +415,8 @@
   .page-container,
   .column-container,
   .horizontal-container,
-  .two-column-card {
+  .two-column-card,
+  .banner-card {
     width: 100%;
     min-width: 0;
   }
@@ -458,19 +490,22 @@
     align-items: center;
   }
 
+  .banner-card {
+    width: 100%;
+    min-width: 0;
+  }
+
   .banner-container {
     height: 180px;
   }
 
   .whole-image {
-    height: 60vh;
+    height: auto;
     border-radius: 10px;
   }
 
   .whole-image .overlay-content {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
+    padding: 16px;
     align-items: center;
     text-align: center;
   }
@@ -556,7 +591,7 @@
   }
 
   .whole-image {
-    height: 52vh;
+    height: auto;
   }
 }
 
@@ -649,7 +684,7 @@
   }
 
   .whole-image {
-    height: 46vh;
+    height: auto;
   }
 }
 
@@ -674,5 +709,13 @@
 
   .banner-container {
     height: 130px;
+  }
+
+  .glance-map {
+    min-height: 200px;
+  }
+
+  .glance-map iframe {
+    aspect-ratio: 1 / 1;
   }
 }
