@@ -25,11 +25,11 @@ export function NewsPage() {
   return (
     <NavigationPages title="News">
       <LinedLabel text="NEWS LIST" className='enlarged'/>
+      <GridContainer>
         {newsList.length === 0 ? (<Loading />) : newsList.map((item, key) => (
-          <GridContainer className="news-grid">
           <NewsCard content={item} key={key} />
-          </GridContainer>
         ))}
+        </GridContainer>
       <Pagination page={page} totalPages={1} onPageChange={(p) => setPage(p)} />
     </NavigationPages>
   )
