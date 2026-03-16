@@ -380,6 +380,19 @@
   color: white;
 }
 
+.separator {
+  display: flex;
+  gap: 10px;
+}
+
+.separator.hbox {
+  flex-direction: row;
+}
+
+.separator.vbox {
+  flex-direction: column;
+}
+
 .column-container {
   display: flex;
   flex-direction: column; 
@@ -421,6 +434,11 @@
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+}
+
+.page-container.gap {
+  display: flex;
+  gap: 10px;
 }
 
 .two-column-container {
@@ -889,17 +907,20 @@
 .kis-card {
   display: flex;
   flex-direction: column;
-
   background: #ffffff;
   border-radius: 12px;
   border: 1px solid rgba(0,0,0,0.06);
-
   overflow: hidden;
-
   width: 320px;
   min-height: 360px;
-
   transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.kis-card.util-card {
+  padding: 10px;
+  border-style: solid;
+  border-width: 10px 3px 10px 3px;
+  border-color: #0f8d57;
 }
 
 .kis-card:hover {
@@ -969,6 +990,10 @@
   background: #fafafa;
   padding: 10px 12px;
   border-radius: 8px;
+}
+
+.kis-card-text.enlarged {
+  font-size: 1.2rem;
 }
 
 .kis-button {
@@ -1356,6 +1381,20 @@
 /* =================
 ---OVERVIEW---------
 ================== */
+.overview-container {
+  display: flex;
+  gap: 10px;
+}
+
+.overview-container p {
+  text-indent: 10px;
+  color: grey;
+}
+
+.overview-container .horizontal-container {
+  border-left: #0f8d57 5px solid;
+  border-right: #0f8d57 5px solid;
+}
 
 .overview-section {
   width: 100%;
@@ -1466,7 +1505,11 @@
 }
 
 .overview-video {
-  min-height: 60vh;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* =================

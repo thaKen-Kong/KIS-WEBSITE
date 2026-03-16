@@ -9,9 +9,18 @@ export function OverviewSection() {
                     <div className="overview-title">
                         <span>OVERVIEW</span>
                     </div>
+                    <img src="https://www.facebook.com/photo/?fbid=1227860212818066&set=pcb.1227861626151258" />
                     <ColumnContainer className="overview-video">
                         <LinedLabel text="FEATURED VIDEO" />
-                        
+                        <iframe
+                            src="https://www.youtube.com/embed/SJTpYdrAVfM?si=__hwBZWvhjJGVkve"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen
+                            className="video"
+                    ></iframe>
                     </ColumnContainer>
                     
                     <Container className="overview-container">

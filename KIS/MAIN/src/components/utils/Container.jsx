@@ -167,10 +167,10 @@ export function GridContainer({ children, className = "", itemClassName = "" }) 
 }
 
 
-export function TextContainer( {children, className = ""} ) {
+export function TextContainer( {content, children, className = ""} ) {
     return (
         <>
-            
+            <p className={`kis-card-text ${className}`}>{content}</p>
         </>
     )
 }
@@ -193,6 +193,28 @@ export function PageHeader( {title, subtitle} ) {
                 {title && <h1 className="navigation-page-title">{title}</h1>}
                 {subtitle && <p className="navigation-page-subtitle">{subtitle}</p>}
             </header>
+        </>
+    )
+}
+
+
+export function OverviewContainer({children, text, textClassName}) {
+    return (
+        <>
+            <section className="overview-container">
+                <LinedLabel text={text} className={textClassName}/>
+                {children}
+            </section>
+        </>
+    )
+}
+
+export function SeparationContainer({children, className = ""} ){
+    return (
+        <>
+            <div className={`separator ${className}`}>
+                {children}
+            </div>
         </>
     )
 }

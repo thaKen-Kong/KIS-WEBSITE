@@ -35,3 +35,13 @@ export function NewsCard( {content = {} } ) {
         </>
     )
 }
+
+export function UtilCard( {children, className = ""} ) {
+    return (
+        <>
+            <div className={`kis-card ${className}`}>
+                {children}
+            </div>
+        </>
+    )
+}
