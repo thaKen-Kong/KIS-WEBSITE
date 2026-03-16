@@ -2043,11 +2043,13 @@
 }
 
 .overview-video {
-  min-height: 90vh;
+  min-height: 0;
+  height: auto;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 16px;
 }
 
 /* =================
