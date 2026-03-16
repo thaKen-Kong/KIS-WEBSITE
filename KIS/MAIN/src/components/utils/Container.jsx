@@ -423,9 +423,9 @@ export const ContactUs = ({
   phone = "(046)-522-0090",
   email = "depedcavite.kaytitinganhs@gmail.com",
   socialLinks = [
-    { name: "Facebook", url: "" },
+    { name: "Facebook", url: "https://www.facebook.com/DepEdTayoKIS301198" },
   ],
-  mapSrc = "https://www.google.com/maps/embed?pb=...", // Replace with your map embed link
+  mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.478008110153!2d120.8255120740355!3d14.107963188950034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd9df05e2ad96b%3A0x3670ac889eae7301!2sKaytitinga%20Integrated%20School!5e0!3m2!1sen!2sus!4v1773666746894!5m2!1sen!2sus", // Replace with your map embed link
 }) => {
   return (
     <section className="contact-us">
