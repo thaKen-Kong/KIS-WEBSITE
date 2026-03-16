@@ -423,9 +423,7 @@ export const ContactUs = ({
   phone = "(046)-522-0090",
   email = "depedcavite.kaytitinganhs@gmail.com",
   socialLinks = [
-    { name: "Facebook", url: "#" },
-    { name: "Instagram", url: "#" },
-    { name: "Twitter", url: "#" },
+    { name: "Facebook", url: "" },
   ],
   mapSrc = "https://www.google.com/maps/embed?pb=...", // Replace with your map embed link
 }) => {
